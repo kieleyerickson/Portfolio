@@ -4,10 +4,11 @@ html {
 
 header {
     position: fixed;
+     top: 0;          /* stick to top */
+  left: 0;
+  width: 100%;     /* full width */
+  z-index: 1000;  
 }
-
-
-
 body {
   font-family: 'Georgia', serif;
   background-color: #e9e1d3;
@@ -73,7 +74,7 @@ body {
 .profile img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* prevents squishing */
+  object-fit: cover;  
 }
 .name {
   position: absolute;
@@ -149,7 +150,7 @@ main {
 .about {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: normal;
 }
 .about-card {
   border: 3px solid #5a4634;
@@ -158,81 +159,10 @@ main {
   max-width: 275px;
   text-align: center;
   position: relative;
-}
-.about h2 {
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-}
-
-.about p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-.about h3 {
-  margin-top: 20px;
-  align-items: left;
-}
-.about a {
-  background-color: #5a4634;
-  color: white;
-  padding: 6px 16px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 14px;
-}
-.workexperience {
-  border: 3px solid #5a4634;
-  border-radius: 600px;
-  padding: 10px 10px;
-  max-width: 200px;
-}
-.workexperience h2 {
-  text-align: center;
-}
-.skills-certifications {
-  border: 3px solid #5a4634;
-  border-radius: 700px;
-  padding: 10px 10px;
-  max-width: 240px;
-   flex-wrap: wrap;
-}
-.skills-certifications h2{
-  text-align: center;
-}
-.middle {
-  display: wrap;
-}
-.camera-icon {
-  position: absolute;
-  top: 1650px;
-  left: 40px;
-  width: 200px;
-}
-.middle-line {
-  position: absolute;
-  top: 1850px;        
-  left: 0;
-  width: 100%;      
-  height: 2px;
-  background-color: #4b3a2f;
-}
-@media (max-width: 600px) {
-  .main{
-    grid-template-columns: 1fr 1fr;
-  }
-  .about {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.about-card {
-  border: 3px solid #5a4634;
-  border-radius: 800px;
-  padding: 40px 30px;
-  max-width: 275px;
-  text-align: center;
-  position: relative;
-}
 .about h2 {
   letter-spacing: 2px;
   margin-bottom: 10px;
@@ -244,7 +174,7 @@ main {
 }
 .about h3 {
   margin-top: 20px;
-  align-items: left;
+  
 }
 .about a {
   background-color: #5a4634;
@@ -268,27 +198,189 @@ main {
   border-radius: 700px;
   padding: 10px 10px;
   max-width: 240px;
-   flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .skills-certifications h2{
   text-align: center;
 }
 .middle {
-  display: wrap;
-}
-.camera-icon {
-  position: absolute;
-  top: 1650px;
-  left: 40px;
-  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .middle-line {
-  position: absolute;
-  top: 1850px;        
+ position: fixed;
+  top: 1800px;        
   left: 0;
   width: 100%;      
   height: 2px;
   background-color: #4b3a2f;
 }
+
+@media (max-width: 600px) { 
+  main {
+    grid-template-columns: 1fr;  
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .about-card, .workexperience, .skills-certifications {
+    max-width: 100%;
+    border-radius: 30px; 
+    padding: 20px;
+  }
+
+  .about h2, .workexperience h2, .skills-certifications h2 {
+    font-size: 18px;
+  }
+
+  .about p {
+    font-size: 13px;
+  }
+
+  .about a {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+    .middle-line { 
+    width: 100%;
+    height: 2px;
+    margin: 30px 10px;    
+    background-color: #4b3a2f;
+}
 }
 
+.mywork.partnerships {
+  background-color: #e9e1d3;
+  padding: 40px;
+  font-family: 'Arial', sans-serif;
+  color: #4b3a2f;
+}
+.mywork.partnerships h2 {
+  text-align: center;
+  font-size: 40px;
+  margin: 30px 0 20px;
+  font-family: 'Georgia', serif;
+
+  grid-template-columns: 1fr 2fr;
+}
+.brand{
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+}
+.brands-card {
+  border: 3px solid #5a4634;
+  border-radius: 800px;
+  padding: 40px 30px;
+  max-width: 275px;
+  text-align: center;
+  position: relative;
+}
+.mywork.partnerships h3 {
+  text-align: right;
+  font-size: 40px;
+  margin: 30px 0 20px;
+  font-family: 'Georgia', serif;
+}
+.partnerships, .work {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid #5a4634;
+  padding: 30px;
+  width: 800px;
+  max-width: 90%;
+  margin-left: auto;
+  background-color: #e9e1d3;
+}
+.partnerships div p {
+  margin: 7px 0;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+.partnerships h3, .work h3 {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+.work div p {
+  margin: 7px 0;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+.work ul {
+  padding: 0;
+  margin: 0;
+}
+.work li {
+  margin: 5px 0;
+}
+.partnerships, .work, .workexperience, .skills-certifications {
+  width: 100%;     
+  max-width: 400px; 
+}
+footer {
+  background-color: #e9e1d3;
+  padding: 30px 40px;
+  text-align: left;
+  color: #4b3a2f;
+  font-family: Georgia, serif;
+}
+.footer-contact h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.footer-contact p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+@media (max-width: 600px) {
+  .mywork.partnerships {
+    padding: 20px;
+  }
+  .mywork.partnerships h2 {
+    font-size: 28px;
+    margin: 20px 0;
+  }
+  .mywork.partnerships h3 {
+    font-size: 20px;
+    text-align: center;
+    margin: 15px 0;
+  }
+  .partnerships, .work {
+    flex-direction: column;   
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 20px auto; 
+    padding: 20px;
+  }
+  .partnerships div,
+  .work div {
+    margin-bottom: 10px;
+  }
+  .partnerships div p, .work div p {
+    font-size: 14px;
+  }
+  .work ul {
+    text-align: center;
+  }
+  .work li {
+    font-size: 14px;
+  }
+  .brands-card {
+    border-radius: 30px;  /* 🔥 remove giant oval */
+    max-width: 100%;
+    padding: 20px;
+  }
+  footer {
+    padding: 20px;
+    text-align: center;
+  }
+  .footer-contact h3 {
+    font-size: 20px;
+  }
+  .footer-contact p {
+    font-size: 14px;
+  }
+}
